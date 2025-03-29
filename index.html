@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Testing Website</title>
+    <title>LYSM</title>
   </head>
   <body>
-    <h1>Hi Anitha Papa</h1>
-    <img src="IMG-20250328-WA0019.jpg" width="500" />
+    <form action="index.html" method="get" onsubmit="return formValidate()">
+      <label for="name">Enter your Name: </label>
+      <input type="text" id="name" name="name" required />
+      <span id="nameError" class="error" style="color: red"></span>
+      <br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function formValidate() {
+        const userName = document.getElementById("name").value.trim();
+        const nameError = document.getElementById("nameError");
+
+        if (userName !== "Anitha") {
+          nameError.innerHTML =
+            "You must enter your own name with first letter caps and do not enter others name ";
+          return false; // Prevent form submission
+        } else {
+          nameError.innerHTML = "";
+          return true; // Allow form submission
+        }
+      }
+    </script>
   </body>
 </html>
